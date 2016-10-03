@@ -1,9 +1,14 @@
 <p id="notice"><%= notice %></p>
-<div class="container">
-<h1>Listing Articles</h1>
+
+<h1>My Blog</h1>
+
 <h3>My first Rails Application for CoderSchool</h3>
 
-<%= render @articles %>
 
+
+<% if @articles.present? %>
+  <%= render @articles %>
+<% else %>
+  <p>There are no articles containing the term(s) <%= params[:search] %>.</p>
+<% end %>
 <%= link_to 'New Article', new_article_path %>
-</div>
